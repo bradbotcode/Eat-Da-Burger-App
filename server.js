@@ -9,6 +9,9 @@ var app = express();
 // process.env.PORT lets the port be set by Heroku
 var PORT = process.env.PORT || 3030;
 
+//routes
+app.use('/', routes);
+
 //express.static middleware 
 app.use(express.static("public"));
 

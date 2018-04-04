@@ -1,6 +1,6 @@
 //dependencies
 var express = require("express");
-var app = express.app();
+var router = express.Router();
 
 //import burgers.js
 var burger = ("./models/burger.js");
