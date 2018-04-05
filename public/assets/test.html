@@ -14,29 +14,41 @@
 <body>
     <div class="container">
         <div class="row">
-
-            <div class="col-md-12 headline">
+            <div class="col-md-12">
                 <h1>Eat-Da-Burger</h1>
+                <img src="image/burger.png" class="center">
             </div>
         </div>
         <br>
-        <div class="row">
+        <div class="row ">
             <div class="col-md"></div>
             <div class="col-md-4">
                 <form>
                     <div class="form-group">
+                        <strong>
+                            <label for="">Place Your Burger Order:</label>
+                        </strong>
                         <textarea class="form-control" id="burgName" rows="1"></textarea>
-                        <label for="">Order Here!</label>
+                        <button type="submit" class="btn btn-danger create">Place Order!</button>
                     </div>
                 </form>
             </div>
             <div class="col-md"></div>
         </div>
         <div class="row">
-            <div class="col-md-6 notEaten">Yum, Yum. Eat'em Up!</div>
-            <div class="col-md-6 devoured">Devoured Burgers</div>
+            <div class="col-md-6 eatem">
+                <h2>Eat'em Up!</h2>
+                <ul>
+                    {{#each burgers}} {{#unless devoured}} {{> partials/burger-block eat=true}} {{/unless}} {{/each}}
+                </ul>
+            </div>
+            <div class="col-md-6 yum">
+                <h2>Yum, Yum!</h2>
+                <ul>
+                    {{#each burgers}} {{#if devoured}} {{> partials/burger-block eat=false}} {{/if}} {{/each}}
+                </ul>
+            </div>
         </div>
-    </div>
     </div>
 </body>
 
