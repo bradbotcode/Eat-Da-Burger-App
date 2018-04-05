@@ -8,30 +8,30 @@ var app = express();
 // process.env.PORT lets the port be set by Heroku
 var PORT = process.env.PORT || 3030;
 
+//data parsing
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
+
 var router = require("./controllers/burgers_controller.js");
 //routes
 app.use("/", router);
 
-//express.static middleware 
+//express.static middleware
 app.use(express.static("public"));
 
-//data parsing
-app.use(bodyParser.urlencoded({
-    extended: false
-}));
-app.use(bodyParser.json());
-app.use(bodyParser.raw({
-    type: 'text/html'
-}))
-
-
 //handlebars engine
-app.engine("handlebars", exphbs({
+app.engine(
+  "handlebars",
+  exphbs({
     defaultLayout: "main"
-}));
+  })
+);
 app.set("view engine", "handlebars");
 
 //start server so it can listen to client requests
-app.listen(PORT, function () {
-    console.log("Server is listening on: http://localhost:" + PORT);
+app.listen(PORT, function() {
+  console.log("Server is listening on: http://localhost:" + PORT);
 });
