@@ -17,9 +17,13 @@ app.use(express.static("public"));
 
 //data parsing
 app.use(bodyParser.urlencoded({
-    extended: true
+    extended: false
 }));
 app.use(bodyParser.json());
+app.use(bodyParser.raw({
+    type: 'text/html'
+}))
+
 
 //handlebars engine
 app.engine("handlebars", exphbs({
