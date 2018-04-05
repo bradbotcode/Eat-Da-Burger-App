@@ -3,7 +3,7 @@ var express = require("express");
 var router = express.Router();
 
 //import model from burgers.js
-var burger = ("./models/burger.js");
+var burgers = require("../models/burgers.js");
 
 //redirect root to /index
 router.get("/", function (req, res) {
@@ -12,7 +12,7 @@ router.get("/", function (req, res) {
 
 //render all burgers to DOM
 router.get("/index", function (req, res) {
-    burger.selectAll(function (data) {
+    burgers.all(function (data) {
         var hbrObj = {
             burgers: data
         };
@@ -24,7 +24,8 @@ router.get("/index", function (req, res) {
 
 //create a new burger
 router.post("/burgers/create", function (req, res) {
-    burger.insertOne(["burger_name"], [req.body.name], function (result) {
+    console.log(req.body);
+    burgers.create(req.body.burger_name, function (result) {
         console.log(result);
         res.redirect("/index");
     });
@@ -32,7 +33,7 @@ router.post("/burgers/create", function (req, res) {
 
 //devour a burger
 router.put("/burgers/eat/:id", function (req, res) {
-    burger.updateOne(req.params.id, function (result) {
+    burgers.update(req.params.id, function (result) {
         console.log(result);
         res.redirect("/index");
     });

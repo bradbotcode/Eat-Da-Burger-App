@@ -1,7 +1,9 @@
-$(function () {
+/*$(function () {
     $(".devoured").on("click", function (event) {
         var id = $(this).data("id");
         var isEaten = $(this).data("iseaten");
+
+        isEaten = true;
 
         var newState = {
             devoured: isEaten
@@ -37,4 +39,4 @@ $(function () {
             }
         );
     });
-});
+});*/

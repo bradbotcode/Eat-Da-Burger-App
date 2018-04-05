@@ -1,22 +1,22 @@
 //import orm.js
-var orm = require("./config/orm.js");
+var orm = require("../config/orm.js");
 
-var burger = {
+var burgers = {
     all: function (cb) {
-        orm.selectAll("burgers", function (res) {
+        orm.selectAll(function (res) {
             cb(res);
         });
     },
-    create: function (cb) {
-        orm.insertOne("burgers", "burgerName", userInput, function (res) {
+    create: function (burger_name, cb) {
+        orm.insertOne(burger_name, function (res) {
             cb(res);
         });
     },
-    update: function (cb) {
-        orm.updateOne("burgers", "devoured", "id", paramID, function (res) {
+    update: function (id, cb) {
+        orm.updateOne(id, function (res) {
             cb(res);
         });
     }
 };
 
-module.exports = burger;
+module.exports = burgers;

@@ -1,14 +1,23 @@
 <div class="row">
     <div class="col-md-6 eatem">
         <h2>Eat'em Up!</h2>
-        <ul>
-            {{#each burgers}} {{#unless devoured}} {{> partials/burger-block eat=true}} {{/unless}} {{/each}}
-        </ul>
+        {{#each burgers}} {{#unless devoured}}
+        <form action="/burgers/eat/{{id}}" method="POST">
+            <div class="input-group">
+                <li class="form-control">{{id}}. {{burger_name}}</li>
+                <span class="input-group-btn">
+                    <button class="btn btn-danger devoured" type="submit">Devour It!</button>
+                </span>
+            </div>
+        </form>
+        {{/unless}} {{/each}}
     </div>
     <div class="col-md-6 yum">
         <h2>Yum, Yum!</h2>
-        <ul>
-            {{#each burgers}} {{#if devoured}} {{> partials/burger-block eat=false}} {{/if}} {{/each}}
-        </ul>
+        {{#each burgers}} {{#if this.devoured}}
+        <div class="input-group">
+            <li class="form-control">{{this.id}}. {{this.burger_name}}</li>
+        </div>
+        {{/if}} {{/each}}
     </div>
 </div>

@@ -23,12 +23,12 @@
         <div class="row ">
             <div class="col-md"></div>
             <div class="col-md-4">
-                <form>
+                <form action="/burgers/create" method="POST">
                     <div class="form-group">
                         <strong>
                             <label for="">Place Your Burger Order:</label>
                         </strong>
-                        <textarea class="form-control" id="burgName" rows="1"></textarea>
+                        <textarea class="form-control" id="burgName" rows="1" name="burger_name"></textarea>
                         <button type="submit" class="btn btn-danger create">Place Order!</button>
                     </div>
                 </form>
