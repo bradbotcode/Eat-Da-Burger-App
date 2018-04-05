@@ -4,19 +4,19 @@ var connection = require("./connection.js");
 //establishing orm methods
 var orm = {
     selectAll: function (cb) {
-        connection.query('SELECT * FROM burgers', function (err, result) {
+        connection.query("SELECT * FROM burgers", function (err, result) {
             if (err) throw err;
             cb(result);
         });
     },
     insertOne: function (burger_name, cb) {
-        connection.query('INSERT INTO burgers (burger_name) VALUE ?', [burger_name], function (err, result) {
+        connection.query("INSERT INTO burgers (burger_name) VALUE (?)", [burger_name], function (err, result) {
             if (err) throw err;
             cb(result);
         });
     },
     updateOne: function (id, cb) {
-        connection.query('UPDATE burgers SET ? WHERE ?', [{
+        connection.query("UPDATE burgers SET ? WHERE ?", [{
             devoured: true
         }, {
             id: id
