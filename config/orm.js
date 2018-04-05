@@ -10,10 +10,7 @@ var orm = {
         });
     },
     insertOne: function (burger_name, cb) {
-        connection.query('INSERT INTO burgers VALUE ?', {
-            burger_name: burger_name,
-            devoured: false
-        }, function (err, result) {
+        connection.query('INSERT INTO burgers (burger_name) VALUE ?', [burger_name], function (err, result) {
             if (err) throw err;
             cb(result);
         });
