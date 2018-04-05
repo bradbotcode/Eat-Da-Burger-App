@@ -1,0 +1,25 @@
+body {
+    background-image: url(../image/diner.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@font-face {
+    font-family: dinerFontimport;
+    src: url(../image/dinerFont.ttf);
+}
+
+h1 {
+    font-family: dinerFontimport;
+    text-align: center;
+    text-shadow: 0 0 7px rgb(0, 255, 242);
+    color: black;
+    font-size: 80px;
+    padding-top: 30px;
+}
+
+.notEaten,
+.devoured {
+    text-align: center;
+    font-weight: bold;
+}

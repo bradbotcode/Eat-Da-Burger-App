@@ -2,15 +2,15 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
-var routes = require("./controllers/burgers_controllers.js");
 
+var router = require("./controllers/burgers_controllers.js");
 var app = express();
 
 // process.env.PORT lets the port be set by Heroku
 var PORT = process.env.PORT || 3030;
 
 //routes
-app.use('/', routes);
+app.use("/", router);
 
 //express.static middleware 
 app.use(express.static("public"));

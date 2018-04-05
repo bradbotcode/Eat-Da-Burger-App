@@ -2,9 +2,21 @@
 var orm = require("./config/orm.js");
 
 var burger = {
-    all: orm.selectAll("burgers"),
-    create: orm.insertOne("burgers", "burgerName", userInput), //userInput = req.body.burger_name
-    update: orm.updateOne("burgers", "devoured", "id", x) //x = req.params.id
-}
+    all: function (cb) {
+        orm.selectAll("burgers", function (res) {
+            cb(res);
+        });
+    },
+    create: function (cb) {
+        orm.insertOne("burgers", "burgerName", userInput, function (res) {
+            cb(res);
+        });
+    },
+    update: function (cb) {
+        orm.updateOne("burgers", "devoured", "id", paramID, function (res) {
+            cb(res);
+        });
+    }
+};
 
 module.exports = burger;
