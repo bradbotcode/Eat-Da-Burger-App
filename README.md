@@ -9,7 +9,7 @@ A user may enter any burger name to add it to the menu. This input also adds the
 
 ## Demo
 
-You can demo this appliction [here](https://agile-lowlands-60074.herokuapp.com/index).
+You can demo this appliction [here](https://sequelize-eat-burger.herokuapp.com/index).
 
 ## Installation
 
